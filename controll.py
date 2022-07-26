@@ -125,10 +125,12 @@ class MyApp(QWidget):
             self.side -= 1
             self.slider_side.setValue(self.side)
         elif e.key() == Qt.Key_R: #상하 조정
-            self.up += 5
+            if self.up<=95:
+                self.up += 5
             self.slider_up.setValue(self.up)
         elif e.key() == Qt.Key_F:
-            self.up -= 5
+            if self.up>=5:
+                self.up -= 5
             self.slider_up.setValue(self.up)
         elif e.key() == Qt.Key_Q: #yaw 조정
             self.yaw += 1
