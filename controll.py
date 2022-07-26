@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QSlider, QDial, QPushButton
+from PyQt5.QtWidgets import QApplication, QWidget, QSlider, QDial, QPushButton, QLabel
 from PyQt5.QtCore import Qt
 import time
 
@@ -23,24 +23,48 @@ class MyApp(QWidget):
         self.slider_front.setSingleStep(1)
 
         self.slider_side = QSlider(Qt.Vertical, self) #side 슬라이더 설정
-        self.slider_side.move(80, 30)
+        self.slider_side.move(130, 30)
         self.slider_side.setRange(-1, 1)
         self.slider_side.setSingleStep(1)
 
         self.slider_yaw = QSlider(Qt.Vertical, self) #yaw 슬라이더 설정
-        self.slider_yaw.move(130, 30)
+        self.slider_yaw.move(230, 30)
         self.slider_yaw.setRange(-1,1)
         self.slider_yaw.setSingleStep(1)
 
         self.slider_up = QSlider(Qt.Vertical, self) #up 슬라이더 설정
-        self.slider_up.move(180, 30)
+        self.slider_up.move(330, 30)
         self.slider_up.setRange(0, 100)
         self.slider_up.setSingleStep(1)
 
-        btn = QPushButton('초기화', self)
-        btn.move(35, 160)
+        self.lab_pitch = QLabel('pitch', self)
+        self.lab_pitch.move(55, 80)
+        self.pitch_value = QLabel('0 ',self)
+        self.pitch_value.move(55, 100)
 
-        btn.clicked.connect(self.button_clicked)
+        self.lab_roll = QLabel('roll', self)
+        self.lab_roll.move(155, 80)
+        self.roll_value = QLabel('0 ',self)
+        self.roll_value.move(155, 100)
+
+        self.lab_yaw = QLabel('yaw', self)
+        self.lab_yaw.move(255, 80)
+        self.yaw_value = QLabel('0 ',self)
+        self.yaw_value.move(255, 100)
+
+        self.lab_thr = QLabel('thr', self)
+        self.lab_thr.move(355, 80)
+        self.thr_value = QLabel('0    ',self)
+        self.thr_value.move(355, 100)
+
+        # font2 = label2.font()
+        # font2.setFamily('Times New Roman')
+        # font2.setBold(True)
+
+        self.slider_front.valueChanged.connect(self.text_change)
+        self.slider_side.valueChanged.connect(self.text_change)
+        self.slider_up.valueChanged.connect(self.text_change)
+        self.slider_yaw.valueChanged.connect(self.text_change)
 
         self.setWindowTitle('QSlider and QDial')
         self.setGeometry(300, 300, 400, 200)
@@ -49,12 +73,11 @@ class MyApp(QWidget):
 
         # while True:
             # print(self.keyReleaseEvent(self.key_W))
-
-    def button_clicked(self):
-        self.slider_front.setValue(0)
-        self.slider_side.setValue(0)
-        self.slider_up.setValue(0)
-        self.slider_yaw.setValue(0)
+    def text_change(self):
+        self.pitch_value.setText(str(self.front))
+        self.roll_value.setText(str(self.side))
+        self.yaw_value.setText(str(self.yaw))
+        self.thr_value.setText(str(self.up))
 
     # def value_(self):
 
