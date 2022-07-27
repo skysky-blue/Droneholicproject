@@ -4,7 +4,6 @@ from PyQt5.QtCore import Qt
 
 
 class MyApp(QWidget):
-
     def __init__(self):
         self.front = 125  # pitch 움직임 값
         self.side = 125  # roll 움직임 값
@@ -74,8 +73,11 @@ class MyApp(QWidget):
         self.slider_yaw.valueChanged.connect(self.text_change)
         self.slider_pow.valueChanged.connect(self.text_change)
 
+        self.discription = QLabel('W,S는 pitch값 +- / A,D는 roll값 +- / Q,E는 yaw값 +- / R,F는 thr값 +-\n             pow슬라이더는 thr제외한 변수 변동 값 조정',self)
+        self.discription.move(10,200)
+
         self.setWindowTitle('QSlider and QDial')
-        self.setGeometry(300, 300, 500, 200)
+        self.setGeometry(300, 300, 500, 300)
         self.show()
 
     def text_change(self):
@@ -85,11 +87,6 @@ class MyApp(QWidget):
         self.yaw_value.setText(str(self.yaw))
         self.thr_value.setText(str(self.up))
         self.pow_value.setText(str(self.pow))
-
-    def keyPressEvent(self, eventQKeyEvent):
-        key = eventQKeyEvent.key()
-        if key == 54:
-            print('pressed')  # 6
 
     def keyReleaseEvent(self, eventQKeyEvent):
         key = eventQKeyEvent.key()
@@ -111,14 +108,15 @@ class MyApp(QWidget):
         elif key == 69 and not eventQKeyEvent.isAutoRepeat():
             self.yaw = 125
             self.slider_yaw.setValue(self.yaw)
+        print("$36M77<60l5ㅁ150}%d}%d}%d%dU85ㅁ%d" % (self.side, self.front, self.yaw, self.up,
+                                                    5 ^ 150 ^ self.side ^ self.front ^ self.yaw ^ self.up ^ 85))
 
     def keyPressEvent(self, e):
-
         if e.key() == Qt.Key_W and self.front == 125:  # pitch 조정
 
             self.front += self.pow
             self.slider_front.setValue(self.front)
-        elif e.key() == Qt.Key_S:
+        elif e.key() == Qt.Key_S and self.front == 125:
             if self.pow >= 125:
                 self.front = 0
             else:
@@ -127,7 +125,7 @@ class MyApp(QWidget):
         elif e.key() == Qt.Key_A and self.side == 125:  # roll 조정
             self.side += self.pow
             self.slider_side.setValue(self.side)
-        elif e.key() == Qt.Key_D:
+        elif e.key() == Qt.Key_D and self.side ==125 :
             if self.pow >= 125:
                 self.side = 0
             else:
@@ -144,15 +142,18 @@ class MyApp(QWidget):
         elif e.key() == Qt.Key_Q and self.yaw == 125:  # yaw 조정
             self.yaw += self.pow
             self.slider_yaw.setValue(self.yaw)
-        elif e.key() == Qt.Key_E:
+        elif e.key() == Qt.Key_E and self.yaw == 125:
             if self.pow >= 125:
                 self.yaw = 0
             else:
                 self.yaw -= self.pow
             self.slider_yaw.setValue(self.yaw)
 
+        print("$36M77<60l5ㅁ150}%d}%d}%d%dU85ㅁ%d" % (self.side, self.front, self.yaw, self.up,
+                                                    5 ^ 150 ^ self.side ^ self.front ^ self.yaw ^ self.up ^ 85))
 
 
 app = QApplication(sys.argv)
 ex = MyApp()
+
 sys.exit(app.exec_())

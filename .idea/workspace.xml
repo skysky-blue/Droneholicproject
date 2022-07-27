@@ -198,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658918671641</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add pow slider">
+      <created>1658920805945</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1658920805945</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -219,6 +226,7 @@
     <MESSAGE value="slider 값 라벨로 출력" />
     <MESSAGE value="slider thr 이 100이상 0이하로 내려가는 오류 해결" />
     <MESSAGE value="ver beta" />
-    <option name="LAST_COMMIT_MESSAGE" value="ver beta" />
+    <MESSAGE value="add pow slider" />
+    <option name="LAST_COMMIT_MESSAGE" value="add pow slider" />
   </component>
 </project>
