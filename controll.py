@@ -1,8 +1,16 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QSlider, QDial, QPushButton, QLabel
 from PyQt5.QtCore import Qt
-import time
+'''
+ser = serial.Serial(port='COM1', baudrate=9600, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, bytesize=serial.EIGHTBITS, timeout=0)
 
+ser.write(bytes('hello', encoding='ascii')) #출력방식1
+
+if ser.readable():
+    res = ser.readline()
+
+
+ser.close()'''
 class MyApp(QWidget):
 
 
