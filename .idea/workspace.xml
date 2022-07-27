@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f344355a-6619-47da-a439-6a6ace6439b1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/serial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controll.py" beforeDir="false" afterPath="$PROJECT_DIR$/controll.py" afterDir="false" />
     </list>
@@ -192,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658840313861</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="ver beta">
+      <created>1658918671641</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1658918671641</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -212,6 +218,7 @@
     <MESSAGE value="1.slider 버그 고침 2.release 시 초기화 3.yaw값 추가" />
     <MESSAGE value="slider 값 라벨로 출력" />
     <MESSAGE value="slider thr 이 100이상 0이하로 내려가는 오류 해결" />
-    <option name="LAST_COMMIT_MESSAGE" value="slider thr 이 100이상 0이하로 내려가는 오류 해결" />
+    <MESSAGE value="ver beta" />
+    <option name="LAST_COMMIT_MESSAGE" value="ver beta" />
   </component>
 </project>
