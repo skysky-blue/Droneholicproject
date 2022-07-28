@@ -90,30 +90,22 @@ class MyApp(QWidget):
 
     def keyReleaseEvent(self, eventQKeyEvent):
         key = eventQKeyEvent.key()
-        if key == 87 and not eventQKeyEvent.isAutoRepeat():
-            self.front = 125
-            self.slider_front.setValue(self.front)
-        elif key == 83 and not eventQKeyEvent.isAutoRepeat():
-            self.front = 125
-            self.slider_front.setValue(self.front)
-        elif key == 65 and not eventQKeyEvent.isAutoRepeat():
-            self.side = 125
-            self.slider_side.setValue(self.side)
-        elif key == 68 and not eventQKeyEvent.isAutoRepeat():
-            self.side = 125
-            self.slider_side.setValue(self.side)
-        elif key == 81 and not eventQKeyEvent.isAutoRepeat():
-            self.yaw = 125
-            self.slider_yaw.setValue(self.yaw)
-        elif key == 69 and not eventQKeyEvent.isAutoRepeat():
-            self.yaw = 125
-            self.slider_yaw.setValue(self.yaw)
+        if not eventQKeyEvent.isAutoRepeat():
+            if key == 87 or key == 83:
+                self.front = 125
+                self.slider_front.setValue(self.front)
+            elif key == 65 or key == 68:
+                self.side = 125
+                self.slider_side.setValue(self.side)
+            elif key == 81 or key == 69:
+                self.yaw = 125
+                self.slider_yaw.setValue(self.yaw)
+
         print("$36M77<60l5ㅁ150}%d}%d}%d%dU85ㅁ%d" % (self.side, self.front, self.yaw, self.up,
                                                     5 ^ 150 ^ self.side ^ self.front ^ self.yaw ^ self.up ^ 85))
 
     def keyPressEvent(self, e):
         if e.key() == Qt.Key_W and self.front == 125:  # pitch 조정
-
             self.front += self.pow
             self.slider_front.setValue(self.front)
         elif e.key() == Qt.Key_S and self.front == 125:
